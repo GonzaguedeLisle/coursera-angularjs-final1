@@ -14,20 +14,21 @@
 <body ng-controller="LunchCheckController">
    <div class="container">
      <h1>Lunch Checker</h1>
-
          <div class="form-group">
              <input id="lunch-menu" type="text"
              placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control">
+             class="form-control"
+             ng-model="list">
          </div>
-         <div class="form-group">
-             <button class="btn btn-default" ng-click="checkQtity()">Check If Too Much</button>
+         <div class="form-group" ng-click="checkQtity()">
+             <button class="btn btn-default" >Check If Too Much</button>
          </div>
-         <div class="form-group message">
-           <!-- Your message can go here. -->
-         </div>
-         <p>{{test}}</p>
+         <div class="form-group message" ng-if="noData" ng-style="{'color': 'red'}">
+          {{noData}}
+        </div>
+         <div class="form-group message" ng-if="quantity" ng-style="{'color': 'green'}">
+          {{quantity}}
+        </div>
    </div>
-
 </body>
 </html>
