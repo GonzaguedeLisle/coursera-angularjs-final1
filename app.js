@@ -19,7 +19,12 @@
         $scope.checkQtity = function () {
             if ($scope.list) {
                 dataArray = stringToArray ($scope.list, ',');
+                //Checks if there is more than empty items
+                if (dataArray.length > 0){
                 dataPresence(dataArray);
+                } else {
+                    dataAbsence();
+                }
             } else {
                 dataAbsence();
             }
@@ -66,7 +71,6 @@
                     i--;
                 }
             }
-            console.log(array);
             return array;
         }
     }
